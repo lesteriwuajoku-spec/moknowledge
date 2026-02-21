@@ -1,0 +1,19 @@
+1. What approach did you take to scraping and structuring the knowledge base data?
+
+I used a serverside scraper that fetches the page and parses the HTML with Cheerio. It pulls stuff like meta tags for the title and description, headings and paragraphs for the main content, links (including social media), colors from the CSS for branding, and images that look like logos. I also look for sections that have "team" or "service" or "product" in the class names to find key people and offerings, and I grab FAQ-style content and testimonials where I can find them. Everything gets put into a JSON structure that matches the categories from the assignment. I didn't use any AI in the scraper itself—that would be a separate step later.
+
+2. What information beyond our current baseline did you choose to include, and why?
+
+I added content themes (basically headings and section titles) so it's clear what topics the business talks about. Testimonials and reviews so the AI can reference real customer quotes. FAQ so the content can stay consistent with how they actually answer questions. I also pulled out CTAs and tried to get USPs from the copy so the tone matches. I figured that would help MoSocial and MoMail sound more like the actual company instead of generic.
+
+3. How would your knowledge base design improve the outputs of MoSocial, MoMail, and MoBlogs specifically?
+
+For MoSocial, having the writing style and brand colors and themes means the posts can match how the company actually talks and looks. Testimonials give something real to quote. For MoMail, the pitch and who the customer is help with subject lines and who the audience is, and the FAQ helps with support type emails. For MoBlogs, the overview and themes help with article ideas and linking, and key people and offerings are good for author bylines and product posts.
+
+4. What would you improve or change about MoKnowledge if you had more time?
+
+I'd try to scrape more than one page (like follow a sitemap) and combine it into one knowledge base. Adding real AI enrichment so a user could click "refine with AI" would be cool. Saving to a real database instead of just localStorage, and maybe export to PDF or CSV. I'd also add some tests so the scraper doesn't break when sites change.
+
+5. What was the most challenging part of this assignment?
+
+Making the scraper work on a bunch of different sites without breaking or pulling a ton of junk. Every site is structured differently so I had to use a lot of fallbacks like if one thing doesn't work, try meta tags, then headings, then class names. Also fitting everything into the schema and making the edit UI not overwhelming was tricky.
